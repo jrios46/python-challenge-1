@@ -188,8 +188,8 @@ print("This is what we are preparing for you.\n")
 # Uncomment the following line to check the structure of the order
 #print(order)
 
-print("Item name                          | Price  | Quantity")
-print("-----------------------------------|--------|----------")
+print("Item name                     | Price  | Quantity")
+print("------------------------------|--------|----------")
 
 
 # 6. Loop through the items in the customer's order
@@ -200,20 +200,15 @@ for i in range(len(order)):
     item_price = order[i]["Price"]
     item_quantity = order[i]["Quantity"]  
     # 8. Calculate the number of spaces for formatted printing
-    num_item_spaces = 24 - len(item_name)
+    num_item_spaces = 30 - len(item_name)
     num_price_spaces = 6 - len(str(item_price))
     # 9. Create space strings
     item_spaces = " " * num_item_spaces
     price_spaces = " " * num_price_spaces
     # 10. Print the item name, price, and quantity
-    print(f"{item_name}{item_spaces}| ${item_price}{price_spaces}| {quantity}")
-#for i in order: 
-#        i = 1
- #       print (f" {i} | {item_name} | $ {item_price} | {quantity}")
+    print(f"{item_name}{item_spaces}| ${item_price}{price_spaces}| {item_quantity}")
 # 11. Calculate the cost of the order using list comprehension
-#if __name__ == "__main__":
-
 total = sum ((item_price * item_quantity) for i in order)
-print (f"Total is {total: .2f}")
+print (f"______________________Total is {total: .2f}")
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
