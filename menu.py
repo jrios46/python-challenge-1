@@ -52,8 +52,7 @@ menu = {
 
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
-menu_list = [{"item name":"string", "Price": float, "Quantity" : int},
-             {"item name":"string", "Price": float, "Quantity" : int}]
+menu_list = [{"item name":"string", "Price": float, "Quantity" : int},]
 # Launch the store and present a greeting to the customer
 
 print("Welcome to the variety food truck.")
@@ -133,7 +132,7 @@ while place_order:
                     # Check if the quantity is a number, default to 1 if not
                     if quantity.isdigit():
                     # Add the item name, price, and quantity to the order list
-                        menu_list.append({"item name":menu_selection_name, 
+                            menu_list.append({"item name":menu_selection_name, 
                                           "Price": menu_items[menu_selection]["Price"], 
                                           "Quantity" :int (quantity)})
                     # Tell the customer that their input isn't valid
@@ -181,22 +180,24 @@ print("-----------------------------------|--------|----------")
 
 
 # 6. Loop through the items in the customer's order
+
 for item in menu_list:
-        i = 1
-        print(f" {i}| {menu_selection_name}| {quantity}")
     # 7. Store the dictionary items as variables
-        item_name = item ["item name"]
+        item_name = item["item name"]
         item_price = item ["Price"]
-        item_quantity2 = item ["Quantity"]   
+        item_quantity = item ["Quantity"]  
     # 8. Calculate the number of spaces for formatted printing
         num_item_spaces = 24 - len(key)
     # 9. Create space strings
         item_spaces = " " * num_item_spaces
     # 10. Print the item name, price, and quantity
-        #print (f"{item_name} | $ {item_price} | {item_quantity2}")
+for i in menu_list: 
+        i = 1
+        print (f" {i} | {item_name} | $ {item_price} | {quantity}")
 # 11. Calculate the cost of the order using list comprehension
 if __name__ == "__main__":
-    Total_by_item = sum ((item_price * item_quantity2) for item in menu_list)
-    print (f"Total is {Total_by_item: .2f}")
+
+    Total = sum ((item_price * item_quantity) for i in menu_list)
+    print (f"Total is {Total: .2f}")
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
